@@ -31,7 +31,7 @@ java -jar lib\junit-platform-console-standalone-1.7.1.jar --classpath dist --sca
 ```
 The results are as follows:
 
-![image](images\junit.png)
+![image](images/junit.png)
 
 ## Elixir
 For Elixir, I have a WSL set up with Ubuntu distro.To run the test, I execute this code in the project directory:
@@ -39,4 +39,4 @@ For Elixir, I have a WSL set up with Ubuntu distro.To run the test, I execute th
 mix test test/ newmath_ex_test.exs
 ```
 The output is the following:
-![image](images\elixir.png)
+![image](images/elixir.png)
