@@ -3,6 +3,7 @@
 | --- | --- |
 | Course | SEG 3103 |
 | Date | Summer 2021 |
+| Name | Michael Kagnew, 300113347 |
 | Professor | Andrew Forward, aforward@uottawa.ca |
 | TA | Zahra Kakavand, jamesurl@uottawa.caa |
 
@@ -34,7 +35,7 @@ The results are as follows:
 ![image](images/junit.png)
 
 ## Elixir
-For Elixir, I have a WSL set up with Ubuntu distro.To run the test, I execute this code in the project directory:
+For Elixir, I have a WSL set up with Ubuntu distro. To run the test, I execute this code in the project directory:
 ```
 mix test test/ newmath_ex_test.exs
 ```
