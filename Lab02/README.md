@@ -7,6 +7,8 @@
 | Professor | Andrew Forward, aforward@uottawa.ca |
 | TA | Henry Chen, zchen229@uottawa.ca |
 
+Repo link https://github.com/Michael-Kagnew/seg3103_playground
+
 # Exercise 1
 Run the sample test cases created from the tutorial, and
 report the results in the table below with the following
