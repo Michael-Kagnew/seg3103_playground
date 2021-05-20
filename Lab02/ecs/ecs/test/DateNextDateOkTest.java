@@ -1,10 +1,14 @@
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+
 
 import java.util.List;
 import java.util.LinkedList;
-import java.util.*;
-import java.sql.*;
 
 @RunWith(Parameterized.class)
 public class DateNextDateOkTest
@@ -20,7 +24,7 @@ public class DateNextDateOkTest
 	 */
 	private Date expected;
 	
-	public void DateNextDateOkTest(Date inputed, Date expected) {
+	public DateNextDateOkTest(Date inputed, Date expected) {
 		this.inputed = inputed;
 		this.expected = expected;
 	}
@@ -41,14 +45,12 @@ public class DateNextDateOkTest
 		params.add(new Date[] { new Date(2005,4,30), new Date(2005,5,1) });
 		params.add(new Date[] { new Date(3453,1,30), new Date(3453,1,31) });
 		params.add(new Date[] { new Date(3456,03,30), new Date(3456,3,31) });
-		params.add(new Date[] { new Date(1901,7,31), new Date(1907,8,31) });
+		params.add(new Date[] { new Date(1901,7,31), new Date(1901,8,1) });
 		params.add(new Date[] { new Date(3453,01,31), new Date(3453,2,1) });
 		params.add(new Date[] { new Date(3456,12,31), new Date(3457,1,1) });
 		return params;
 	}
 	
-	
-	@DisplayName("NextDate function should return the expected input")
 	@Test
 	public void testNextDateException()
 	{

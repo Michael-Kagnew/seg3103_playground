@@ -78,7 +78,7 @@ class DateTest {
   @Test
   void nextDate_t13() {
     Date d = new Date(1901,7,31);
-    assertEquals(new Date(1907,8,31), d.nextDate());
+    assertEquals(new Date(1901,8,1), d.nextDate());
   }
   
   @Test
@@ -95,32 +95,62 @@ class DateTest {
   
   @Test
   void nextDate_t16() {
-    Date d = new Date(1500,2,31);
-    assertEquals(IllegalArgumentException, d.nextDate());
+    Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+      Date d = new Date(1500,2,31);
+    });
+    
+    String expectedMessage = "day must less than 28 for month February on a non leap year.";
+    String actualMessage = exception.getMessage();
+    
+    assertTrue(actualMessage.contains(expectedMessage));
   }
   
   @Test
   void nextDate_t17() {
-    Date d = new Date(1500,2,29);
-    assertEquals(IllegalArgumentException, d.nextDate());
+    Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+      Date d = new Date(1500,2,29);
+    });
+    
+    String expectedMessage = "day must less than 28 for month February on a non leap year.";
+    String actualMessage = exception.getMessage();
+    
+    assertTrue(actualMessage.contains(expectedMessage));
   }
   
   @Test
   void nextDate_t18() {
-    Date d = new Date(-1,10,20);
-    assertEquals(IllegalArgumentException, d.nextDate());
+    Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+      Date d = new Date(-1,10,20);
+    });
+    
+    String expectedMessage = "year must be greater or equal to 0.";
+    String actualMessage = exception.getMessage();
+    
+    assertTrue(actualMessage.contains(expectedMessage));
   }
   
   @Test
   void nextDate_t19() {
-    Date d = new Date(1458,15,12);
-    assertEquals(IllegalArgumentException, d.nextDate());
+    Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+      Date d = new Date(1458,15,12);
+    });
+    
+    String expectedMessage = "month must be between 1 and 12.";
+    String actualMessage = exception.getMessage();
+    
+    assertTrue(actualMessage.contains(expectedMessage));
   }
   
   @Test
   void nextDate_t20() {
-    Date d = new Date(1975,6,-50);
-    assertEquals(IllegalArgumentException, d.nextDate());
+    Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+      Date d = new Date(1975,6,-50);
+    });
+    
+    String expectedMessage = "day must greater or equal to 1.";
+    String actualMessage = exception.getMessage();
+    
+    assertTrue(actualMessage.contains(expectedMessage));
   }
 
 }
