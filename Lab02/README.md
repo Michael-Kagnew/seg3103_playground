@@ -16,13 +16,13 @@ header
 
  Test Case | Expected Result | Actual Results | Verdict(Pass, Fail, Inconclusive) 
  --- | --- | --- | --- 
-1 | registration request accepted | Err4: Wrong Firstname Format, Err5: Wrong Last name format         | Fail
+1 | registration request accepted |  registration request accepted        | Pass
 2 |    registration request accepted   |      Err6: Wrong email format       | Fail
-3 | registration request accepted |Err4: Wrong Firstname Format, Err5: Wrong Last name format | Fail
+3 | registration request accepted |Err4: registration request accepted | Pass
 4 |    registration request accepted   |      registration request accepted          | Pass
-5 |    Err 1: Wrong UserName format   | Err1:Wrong UserName format, Err3: Size must be between 6 and 12, Err4: Wrong FirstName format, Err5: Wrong LastName format           | Fail
+5 |    Err 1: Wrong UserName format   | Err1:Wrong UserName format, Err3: Size must be between 6 and 12          | Fail
 6 | Err3: Size must be between 6 and 12 | Err1:Wrong UserName format, Err3: Size must be between 6 and 12, Err6: Wrong Email format | Fail
-7 | Err3:Size must be between 6 and 12  | Err3: Size must be between 6 and 12, Err4: Wrong FirstName format, Err5: Wrong LastName format  | Fail
+7 | Err3:Size must be between 6 and 12  | Err3: Size must be between 6 and 12 | Pass
 8 | Err1:Wrong UserName format | Err1:Wrong UserName format | Pass
 
 
