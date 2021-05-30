@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Computation.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">ComputationTest (May 27, 2021 5:14:05 p.m.)</a> &gt; <a href="../../index.html" class="el_group">computation</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Computation.java</span></div><h1>Computation.java</h1><pre class="source lang-java linenums"><span class="fc" id="L1">public class Computation {</span>
+
+	public int add(int a, int b) {
+<span class="fc" id="L4">		int result = a + b;</span>
+<span class="fc" id="L5">		int zero = 0;</span>
+<span class="fc" id="L6">		int result2 = result;</span>
+<span class="pc bpc" id="L7" title="1 of 2 branches missed.">		if (a == Integer.MIN_VALUE) {</span>
+<span class="nc" id="L8">		    new Integer(result);</span>
+		}
+<span class="fc" id="L10">		int result3 = result2;</span>
+<span class="fc" id="L11">		return result + zero;</span>
+	}
+
+	public int multiply(int n, int m) {
+<span class="fc" id="L15">    int result = 0;</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">    for (int j = 0; j &lt; m; j++) {</span>
+<span class="fc" id="L17">          result += n;</span>
+      }
+<span class="fc" id="L19">    return result;</span>
+	}
+
+	public int substract(int a, int b) {
+<span class="nc" id="L23">		int result = a - b;</span>
+<span class="nc" id="L24">		return result;</span>
+	}
+
+	public void catchesException() {
+<span class="fc" id="L28">	  int i = 0;</span>
+	  try {
+<span class="pc bpc" id="L30" title="1 of 2 branches missed.">      if (i == 13) {</span>
+<span class="nc" id="L31">          throw new NumberFormatException();</span>
+      }
+<span class="fc" id="L33">      i = 23;</span>
+<span class="pc" id="L34">	  } catch (NumberFormatException e) {</span>
+<span class="nc" id="L35">	      System.out.println(&quot;Exception abgefangen&quot;);</span>
+	  }
+<span class="fc" id="L37">	  i = 42;</span>
+<span class="fc" id="L38">	}</span>
+
+	public double divide(double divisor, double divident) {
+		double result;
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">		if (divident == 0) {</span>
+<span class="nc" id="L43">		    result = Double.POSITIVE_INFINITY;</span>
+<span class="nc" id="L44">		} else {</span>
+<span class="fc" id="L45">		    result = divisor / divident;</span>
+		}
+<span class="fc" id="L47">		double result2 = result;</span>
+<span class="fc" id="L48">		return result;</span>
+	}
+
+	public int justALoop() {
+<span class="fc" id="L52">    int a = 2;</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">    for (int i = 0; i &lt; 10;) {</span>
+<span class="fc" id="L54">    	i = i + a;</span>
+    }
+<span class="fc" id="L56">    return a;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>ComputationTest (May 27, 2021 5:14:05 p.m.)</div></body></html>
