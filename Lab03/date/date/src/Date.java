@@ -41,21 +41,22 @@ public class Date {
 	 *   - less or equal to 30 for months with 30 days,
 	 *   - less or equal to 29 for February if year is leap
 	 *   - less or equal to 30 for February if year is non-leap
+	 *   This function has been refactored.
 	 */
 	private void setDay(int day) {
 		if (day < 1) {
 			throw new IllegalArgumentException("day must greater or equal to 1.");
 		}
-		if (day > 31){
+		else if (day > 31){
 			throw new IllegalArgumentException("day must less or equal to 31.");
 		}
-		if (isThirtyDayMonth() && day > 30) {
+		else if (isThirtyDayMonth() && day > 30) {
 			throw new IllegalArgumentException("day must less than 30 for month " + monthNames[month-1]);
 		}
-		if (this.month == 2 && isLeapYear() && day > 29) {
+		else if (this.month == 2 && isLeapYear() && day > 29) {
 			throw new IllegalArgumentException("day must less than 29 for month " + monthNames[month-1] + " on a leap year.");
 		}
-		if (this.month == 2 && !isLeapYear() && day > 28) {
+		else if (this.month == 2 && !isLeapYear() && day > 28) {
 			throw new IllegalArgumentException("day must less than 28 for month " + monthNames[month-1] + " on a non leap year.");
 		}
 		this.day = day;
@@ -107,18 +108,20 @@ public class Date {
 	private boolean isEndOfMonth() {
 		boolean leap = isLeapYear();
 		if (day == 31 || (day == 30 && isThirtyDayMonth()) ||
-				(this.month == 2 && ((day == 29 && leap) || (day == 28 && !leap))))
+				(this.month == 2 
+				&& ((day == 29 
+				&& leap) 
+						|| (day == 28 && !leap))))
 			return true;
 		else return false;
 	}
 
 	/**
 	 * returns true if month has 30 days.
+	 * This function has been refactored.
 	 */
 	private boolean isThirtyDayMonth() {
-		if (this.month == 4 || this.month == 6 || this.month == 9 || this.month == 11)
-			return true;
-		else return false;
+		return (this.month == 4 || this.month == 6 || this.month == 9 || this.month == 11);
 	}
 
 	/**

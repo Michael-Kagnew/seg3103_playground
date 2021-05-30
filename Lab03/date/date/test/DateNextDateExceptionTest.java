@@ -36,6 +36,8 @@ public class DateNextDateExceptionTest
     params.add(new Integer[] { 2008, 2, 30 });
     params.add(new Integer[] { 2021, -1, 30 });
     params.add(new Integer[] { 2021, 14, 30 });
+    params.add(new Integer[] { 2007, 2, 29 });
+
     return params;
   }
 
