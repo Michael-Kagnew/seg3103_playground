@@ -148,5 +148,52 @@ class DateTest {
       () -> new Date(1975, 6, -50)
     );
   }
+  
+  @Test
+  void nextDate_valid_getters() {
+	  Date today = new Date(2021, 5, 30);
+	  assertEquals(2021, today.getYear());
+	  assertEquals(5, today.getMonth());
+	  assertEquals(30, today.getDay());
+  }
+  
+  @Test
+  void toString_valid() {
+	  Date today = new Date(2021, 5, 30);
+	  assertEquals("2021/May/30", today.toString());
+  }
+  
+  @Test
+  void isLeapYear_valid() {
+	  Date leapYear = new Date(4000, 2, 28);
+	  assertEquals(true, leapYear.isLeapYear());
+  }
+  
+  @Test
+  void equals_not_a_date_valid() {
+	  Date today = new Date(2021, 5, 30);
+	  assertEquals(false, today.equals(null));
+  }
+  
+  @Test
+  void equals_valid_day_off() {
+	  Date today = new Date(2021, 5, 30);
+	  Date other = new Date(2021, 5, 31);
+	  assertEquals(false, today.equals(other));
+  }
+  
+  @Test
+  void equals_valid_month_off() {
+	  Date today = new Date(2021, 5, 30);
+	  Date other = new Date(2021, 6, 30);
+	  assertEquals(false, today.equals(other));
+  }
+  
+  @Test
+  void equals_valid_year_off() {
+	  Date today = new Date(2021, 5, 30);
+	  Date other = new Date(2022, 5, 30);
+	  assertEquals(false, today.equals(other));
+  }
 
 }
