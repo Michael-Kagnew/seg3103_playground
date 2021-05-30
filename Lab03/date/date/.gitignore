@@ -1,6 +1,0 @@
-*.class
-dist
-report
-.classpath
-.project
-jacoco.exec
