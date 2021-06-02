@@ -3,7 +3,7 @@ defmodule Grades.CalculatorTest do
   alias Grades.Calculator
 
   describe "percentage_grade/1" do
-    test "sample" do
+    test "average_is_valid" do
       assert 85 ==
                Calculator.percentage_grade(%{
                  homework: [0.8],
@@ -12,5 +12,49 @@ defmodule Grades.CalculatorTest do
                  final: 0.9
                })
     end
+    test "homework_count_0" do
+      assert 52 ==
+              Calculator.percentage_grade(%{
+                homework: [],
+                labs: [0.62, 0.89, 0.56],
+                midterm: 0.82,
+                final: 0.73
+              })
+    end
+    test "lab_count_0" do
+      assert 59 ==
+        Calculator.percentage_grade(%{
+          homework: [0.62, 0.89, 0.56],
+          labs: [],
+          midterm: 0.82,
+          final: 0.73
+        })
+    end
   end
+
+  describe "letter_grade/1" do
+    test "get_ein_zero_labs" do
+      assert "EIN" ==
+                Calculator.letter_grade(%{
+                  homework: [0.2],
+                  labs: [],
+                  midterm: 0.78,
+                  final: 0.62
+                })
+    end
+    test "get_ein_zero_homework" do
+      assert "EIN" ==
+                Calculator.letter_grade(%{
+                  homework: [],
+                  labs: [0.62, 0.53, 0.73],
+                  midterm: 0.60,
+                  final: 0.62
+                })
+    end
+  end
+
+  describe "numeric_grade/1" do
+
+  end
+
 end
