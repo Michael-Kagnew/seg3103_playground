@@ -35,10 +35,10 @@ Derive a test suite for 100% coverage for class Date
 4. Condition/branch coverage
 
 ## Date Code Coverage Metrics
-Here are the metrics for the date class before any changes were made:
+Here are the metrics for the date class before any changes were made: <br>
 ![image](./assets/date_before_tests.png)
 
-Here are the metrics after adding in more tests: 
+Here are the metrics after adding in more tests: <br>
 ![image](./assets/Lab3AddedTestsCoverage.png)
 
 ### Manual Condition Coverage
@@ -64,5 +64,5 @@ This single condition was not refactorable in order to effectively achieve compl
 
 As mentioned, the refactoring was limited since every other part of the code was covered successfully, except for that single condition. Therefore, no changes were made. However, at 98.5% branch coverage, with many other coverages at 100%, we believe this number achieves a satisfactory amount of testing. 
 
-Below is the screnshot of the coverage after refactoring. As seen, there is no change after any refactoring, especially since it is impossible to get that one condition to sucessfully pass.
+Below is the screnshot of the coverage after refactoring. As seen, there is no change after any refactoring, especially since it is impossible to get that one condition to sucessfully pass.<br>
 ![image](./assets/Lab3AddedTestsCoverage.png)
