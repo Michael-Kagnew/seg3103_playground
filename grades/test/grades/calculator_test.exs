@@ -57,4 +57,21 @@ defmodule Grades.CalculatorTest do
 
   end
 
+  describe "paramaterized_testing/1" do 
+
+    test "parmater1s/1" do 
+        parameters_list = [{["EIN", 10], %{
+      homework: [],
+      labs: [0.62, 0.53, 0.73],
+      midterm: 0.60,
+      final: 0.62
+    }}]
+      for {result, input} <- parameters_list do
+        assert Enum.at(result, 0) == Calculator.letter_grade(input)
+                assert Enum.at(result, 1) == Calculator.letter_grade(input)
+
+      end
+    end
+  end 
+
 end
