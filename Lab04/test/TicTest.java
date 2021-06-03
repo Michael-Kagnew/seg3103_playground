@@ -28,7 +28,6 @@ public class TicTest{
        
         this.obj = new Tic((Integer)(ticVals[0][0]), (Integer)(ticVals[0][1]));
         
-        System.out.println("her");
         this.expected = expected;
     }
 
@@ -36,9 +35,10 @@ public class TicTest{
     @Parameters
     public static List<Object[][][]> data(){
         List<Object[][][]> params = new LinkedList<Object[][][]>();
-        params.add(new Object[][][]{ {{2,3}}, {{"_|","_|", "_"}, {"_|","_|","_|"}}} );
-        params.add(new Object[][][]{ {{1,2}}, {{"_|","_|"}}} );
-        params.add(new Object[][][]{ {{2,2}}, {{"_|","_"}, {"_|","_|"}}} );
+        params.add(new Object[][][]{ {{2,3}}, {{"_|","_|", "_"}, {"_|","_|","_"}}} );
+        params.add(new Object[][][]{ {{1,2}}, {{"_|","_"}}} );
+        params.add(new Object[][][]{ {{2,2}}, {{"_|","_"}, {"_|","_"}}} );
+        params.add(new Object[][][]{ {{2,2}}, {{"_|","_"}, {"_|","_"}}} );
         return params;
     }
 
