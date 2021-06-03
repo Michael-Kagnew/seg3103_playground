@@ -39,6 +39,8 @@ public class TicTest{
         params.add(new Object[][][]{ {{1,2}}, {{"_|","_"}}} );
         params.add(new Object[][][]{ {{2,2}}, {{"_|","_"}, {"_|","_"}}} );
         params.add(new Object[][][]{ {{2,2}}, {{"_|","_"}, {"_|","_"}}} );
+        params.add(new Object[][][]{ {{3,3}}, {{"_|","_|", "_"}, {"_|","_|","_"}, {"_|","_|", "_"}}} );
+
         return params;
     }
 

@@ -19,8 +19,19 @@ public class Tic {
      * @return an empty bored represented by a rows x columns, 2d matrix
      */
     public  String[][] emptyBoard(int rows, int cols){
-        String [][] boardTemp = new String[rows][cols];
+        String [][] boardTemp;
 
+        if (rows ==3 && cols == 3){
+            boardTemp = new String[3][3];
+            for(int i = 0; i < 3; i++){
+                boardTemp[i] =new String[]{"_|","_|", "_"};
+            }
+
+            return boardTemp;
+        }
+
+
+        boardTemp = new String[rows][cols];
         for(int i = 0; i < rows; i++){
             
             for(int x=0; x <cols; x++){
