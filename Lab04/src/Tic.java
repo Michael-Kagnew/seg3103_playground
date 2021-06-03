@@ -28,7 +28,7 @@ public class Tic {
                     boardTemp[i][x] = "_|";
 
                 } else {
-                    boardTemp[i][x] = "";
+                    boardTemp[i][x] = "_";
                 }
             }
         }
