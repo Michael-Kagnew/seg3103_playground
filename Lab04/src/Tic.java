@@ -65,11 +65,19 @@ public class Tic {
         // apply the correct tick based on the player type
         switch (player) {
             case X:
-                board[positionX][positionY] = "X";
+                if (board[positionY][positionX].equals("_|")) {
+                    board[positionY][positionX] = "X|";
+                } else {
+                    board[positionY][positionX] = "X";
+                }
                 nextTurn = Player.O;  // the next move needs to be player O
                 break;
             case O:
-                board[positionX][positionY] = "O";
+                if (board[positionY][positionX].equals("_|")) {
+                    board[positionY][positionX] = "O|";
+                } else {
+                    board[positionY][positionX] = "O";
+                }
                 nextTurn = Player.X;  // the next move needs to be player X
                 break;
         }

@@ -38,9 +38,9 @@ public class TicNextTest {
     public static List<Object[][][]> data(){
         List<Object[][][]> params = new LinkedList<Object[][][]>();
         params.add(new Object[][][]{ {{2,3,0,0}}, {{"X|","_|", "_"}, {"_|","_|","_"}}} );
-        params.add(new Object[][][]{ {{1,2,0,1}}, {{"_|","X"}}} );
+        params.add(new Object[][][]{ {{1,2,0,0}}, {{"X|","_"}}} );
         params.add(new Object[][][]{ {{2,2,1,1}}, {{"_|","_"}, {"_|","X"}}} );
-        params.add(new Object[][][]{ {{2,2,1,0}}, {{"_|","_"}, {"_|","X"}}} );
+        params.add(new Object[][][]{ {{2,2,1,0}}, {{"_|","X"}, {"_|","_"}}} );
         params.add(new Object[][][]{ {{3,3,1,2}}, {{"_|","_|", "_"}, {"_|","_|","_"}, {"_|","X|", "_"}}} );
 
         return params;
