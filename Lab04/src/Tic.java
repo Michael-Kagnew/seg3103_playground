@@ -2,7 +2,7 @@ package src;
 
 public class Tic {
 
-    enum Player { X, O }
+    public enum Player { X, O }
 
     public String[][] board;
     private Player nextTurn;
@@ -63,16 +63,19 @@ public class Tic {
             return board;
         }
         // apply the correct tick based on the player type
-        switch (player) {
-            case X:
-                board[positionX][positionY] = "X";
-                nextTurn = Player.O;  // the next move needs to be player O
-                break;
-            case O:
-                board[positionX][positionY] = "O";
-                nextTurn = Player.X;  // the next move needs to be player X
-                break;
+        String append = "";
+        if (board[positionY][positionX].equals("_|")) {
+            append = "|";
         }
+        if (player == Player.X) {
+            append = "X" + append;
+            nextTurn = Player.O;
+        } 
+        else if (player == Player.O) {
+            append = "O" + append;
+            nextTurn = Player.X;
+        }
+        board[positionY][positionX] = append;
         return board;
     }
     
