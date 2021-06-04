@@ -22,21 +22,25 @@ buggy code
 #### Commit baf6fe5
 Failed Test Commit Mike … 
 
+![image](./assets/mike_fail_test.png)
 ---
 
 #### Commit 87d52d5
 Actual Buggy Code …
 
+![image](./assets/mike_Actual_buggy_code.png)
 ---
 
 #### Commit c309c05
 Fixed Buggy Code …
 
+![image](./assets/mike_Fixed_buggy_code.png)
 ---
 
 #### Commit c5e2bfe
 Refactored Code …
 
+![image](./assets/mike_Refactored_Code.png)
 ---
 
 ## Gabriel Cordovado
