@@ -67,16 +67,15 @@ public class Tic {
         if (board[positionY][positionX].equals("_|")) {
             append = "|";
         }
-        switch (player) {
-            case X:
-                board[positionY][positionX] = "X" + append;
-                nextTurn = Player.O;  // the next move needs to be player O
-                break;
-            case O:
-                board[positionY][positionX] = "O" + append;
-                nextTurn = Player.X;  // the next move needs to be player X
-                break;
+        if (player == Player.X) {
+            append = "X" + append;
+            nextTurn = Player.O;
+        } 
+        else if (player == Player.O) {
+            append = "O" + append;
+            nextTurn = Player.X;
         }
+        board[positionY][positionX] = append;
         return board;
     }
     
