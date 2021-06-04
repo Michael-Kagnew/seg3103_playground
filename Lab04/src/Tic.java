@@ -2,7 +2,7 @@ package src;
 
 public class Tic {
 
-    enum Player { X, O }
+    public enum Player { X, O }
 
     public String[][] board;
     private Player nextTurn;

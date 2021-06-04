@@ -50,9 +50,4 @@ public class TicTest{
     public void boardTest(){
         assertEquals(Arrays.deepToString(expected), Arrays.deepToString(obj.board));
     }
-
-    @Test
-    public void tickBoardTest() {
-        assertEquals(expected, actual);
-    }
 }
