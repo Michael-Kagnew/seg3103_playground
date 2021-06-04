@@ -63,21 +63,17 @@ public class Tic {
             return board;
         }
         // apply the correct tick based on the player type
+        String append = "";
+        if (board[positionY][positionX].equals("_|")) {
+            append = "|";
+        }
         switch (player) {
             case X:
-                if (board[positionY][positionX].equals("_|")) {
-                    board[positionY][positionX] = "X|";
-                } else {
-                    board[positionY][positionX] = "X";
-                }
+                board[positionY][positionX] = "X" + append;
                 nextTurn = Player.O;  // the next move needs to be player O
                 break;
             case O:
-                if (board[positionY][positionX].equals("_|")) {
-                    board[positionY][positionX] = "O|";
-                } else {
-                    board[positionY][positionX] = "O";
-                }
+                board[positionY][positionX] = "O" + append;
                 nextTurn = Player.X;  // the next move needs to be player X
                 break;
         }
