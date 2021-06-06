@@ -1,37 +1,33 @@
 defmodule Grades.Calculator do
-  def percentage_grade(%{homework: homework, labs: labs, midterm: midterm, final: final}) do
-    avg_homework =
-      if Enum.count(homework) == 0 do
-        0
-      else
-        Enum.sum(homework) / Enum.count(homework)
-      end
 
-    avg_labs =
-      if Enum.count(labs) == 0 do
-        0
-      else
-        Enum.sum(labs) / Enum.count(labs)
-      end
+  # Question 2.1 (Gabriel Cordovado)
+  # This function will take in the homework and lab lists seperatly to reduce the amount of code
+  # that is being duplicated within the percentage_grade, letter_grade, and numeric_grade classes
+  #
+  # @param list_of_n_items: list of floats
+  # @returns an float representing the average of N items within the list of floats
+  #
+  def avg(list_of_n_items) do
+    if Enum.count(list_of_n_items) == 0 do
+      0
+    else
+      Enum.sum(list_of_n_items) / Enum.count(list_of_n_items)
+    end
+  end
+
+  def percentage_grade(%{homework: homework, labs: labs, midterm: midterm, final: final}) do
+    avg_homework = avg(homework)  # refractor 2.1
+
+    avg_labs = avg(labs)  # refractor 2.1
 
     mark = 0.2 * avg_labs + 0.3 * avg_homework + 0.2 * midterm + 0.3 * final
     round(mark * 100)
   end
 
   def letter_grade(%{homework: homework, labs: labs, midterm: midterm, final: final}) do
-    avg_homework =
-      if Enum.count(homework) == 0 do
-        0
-      else
-        Enum.sum(homework) / Enum.count(homework)
-      end
+    avg_homework = avg(homework)  # refractor 2.1
 
-    avg_labs =
-      if Enum.count(labs) == 0 do
-        0
-      else
-        Enum.sum(labs) / Enum.count(labs)
-      end
+    avg_labs = avg(labs)  # refractor 2.1
 
     avg_exams = (midterm + final) / 2
 
@@ -62,19 +58,9 @@ defmodule Grades.Calculator do
   end
 
   def numeric_grade(%{homework: homework, labs: labs, midterm: midterm, final: final}) do
-    avg_homework =
-      if Enum.count(homework) == 0 do
-        0
-      else
-        Enum.sum(homework) / Enum.count(homework)
-      end
+    avg_homework = avg(homework)  # refractor 2.1
 
-    avg_labs =
-      if Enum.count(labs) == 0 do
-        0
-      else
-        Enum.sum(labs) / Enum.count(labs)
-      end
+    avg_labs = avg(labs)  # refractor 2.1
 
     avg_exams = (midterm + final) / 2
 
