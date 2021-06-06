@@ -15,12 +15,24 @@ defmodule Grades.Calculator do
     end
   end
 
+  # Question 2.3 (Gabriel Cordovado)
+  # the formula to calculate the student's offical grade is referenced multipl times throughout
+  # the program, this will help reduce the amount of duplicated lines and make the code more
+  # readable to the developer
+  #
+  # @param avg_labs, avg_homework, midterm, final : float
+  # @returns a float representing the students calculated grade
+  #
+  def calculate_grade(avg_labs, avg_homework, midterm, final) do
+    0.2 * avg_labs + 0.3 * avg_homework + 0.2 * midterm + 0.3 * final
+  end
+
   def percentage_grade(%{homework: homework, labs: labs, midterm: midterm, final: final}) do
     avg_homework = avg(homework)  # refractor 2.1
 
     avg_labs = avg(labs)  # refractor 2.1
 
-    mark = 0.2 * avg_labs + 0.3 * avg_homework + 0.2 * midterm + 0.3 * final
+    mark = calculate_grade(avg_labs, avg_homework, midterm, final)  # refractor 2.3
     round(mark * 100)
   end
 
@@ -39,7 +51,7 @@ defmodule Grades.Calculator do
     if avg_homework < 0.4 || avg_exams < 0.4 || num_labs < 3 do
       "EIN"
     else
-      mark = 0.2 * avg_labs + 0.3 * avg_homework + 0.2 * midterm + 0.3 * final
+      mark = calculate_grade(avg_labs, avg_homework, midterm, final)  # refractor 2.3
 
       cond do
         mark > 0.895 -> "A+"
@@ -72,7 +84,7 @@ defmodule Grades.Calculator do
     if avg_homework < 0.4 || avg_exams < 0.4 || num_labs < 3 do
       0
     else
-      mark = 0.2 * avg_labs + 0.3 * avg_homework + 0.2 * midterm + 0.3 * final
+      mark = calculate_grade(avg_labs, avg_homework, midterm, final)  # refractor 2.3
 
       cond do
         mark > 0.895 -> 10
