@@ -2,65 +2,7 @@ defmodule Grades.CalculatorTest do
   use ExUnit.Case
   alias Grades.Calculator
 
-  describe "percentage_grade/1" do
-    test "average_is_valid" do
-      assert 85 ==
-               Calculator.percentage_grade(%{
-                 homework: [0.8],
-                 labs: [1, 1, 1],
-                 midterm: 0.70,
-                 final: 0.9
-               })
-    end
-
-    test "homework_count_0" do
-      assert 52 ==
-               Calculator.percentage_grade(%{
-                 homework: [],
-                 labs: [0.62, 0.89, 0.56],
-                 midterm: 0.82,
-                 final: 0.73
-               })
-    end
-
-    test "lab_count_0" do
-      assert 59 ==
-               Calculator.percentage_grade(%{
-                 homework: [0.62, 0.89, 0.56],
-                 labs: [],
-                 midterm: 0.82,
-                 final: 0.73
-               })
-    end
-  end
-
-  describe "letter_grade/1" do
-    test "get_ein_zero_labs" do
-      assert "EIN" ==
-               Calculator.letter_grade(%{
-                 homework: [0.2],
-                 labs: [],
-                 midterm: 0.78,
-                 final: 0.62
-               })
-    end
-
-    test "get_ein_zero_homework" do
-      assert "EIN" ==
-               Calculator.letter_grade(%{
-                 homework: [],
-                 labs: [0.62, 0.53, 0.73],
-                 midterm: 0.60,
-                 final: 0.62
-               })
-    end
-  end
-
-  describe "numeric_grade/1" do
-  end
-
-
-  describe "parameters/1" do 
+  describe "parameters/1" do
       setup do
       [values: [
         {["A+", 10, 99], %{homework: [0.99], labs: [0.99, 0.99, 0.99], midterm: 0.99, final: 0.99}},
@@ -74,31 +16,146 @@ defmodule Grades.CalculatorTest do
         {["D", 2], %{homework: [0.5], labs: [0.5,0.5, 0.5], midterm: 0.5, final: 0.5}},
         {["E", 1], %{homework: [0.4], labs: [0.4, 0.4, 0.4], midterm: 0.4, final: 0.4}},
         {["F", 0,], %{homework: [0.4], labs: [0,0,0,0.25,0.25,0.25,0.25,0,0,0,0,0,0,0,0], midterm: 0.4, final: 0.4}},
-        {["EIN", 0, 15], %{homework: [], labs: [], midterm: 0.3, final: 0.3}} 
+        {["EIN", 0, 15], %{homework: [], labs: [], midterm: 0.3, final: 0.3}}
           ]
       ]
       end
-    
-    test "letter_grade_test/1", parameters_list do
-      for {result, input} <- parameters_list[:values] do
-        assert Enum.at(result, 0) == Calculator.letter_grade(input)
+
+      # percentage_grade
+
+      test "percentage_grade_valid/1", param do
+        branch = Enum.at(param[:values], 0)
+        assert Enum.at(elem(branch, 0), 2) == Calculator.percentage_grade(elem(branch, 1))
       end
-    end
 
-    test "numeric_grade_test/1", parameters_list do
-      for {result, input} <- parameters_list[:values] do
-        assert Enum.at(result, 1) == Calculator.numeric_grade(input)
+      test "percentage_grade_0/1" , param do
+        branch = Enum.at(param[:values], 11)
+        assert Enum.at(elem(branch, 0), 2) == Calculator.percentage_grade(elem(branch, 1))
       end
-    end
 
-    test "percentage_grade_test/1", parameters_list do
-      yes_branch_map = Enum.at(parameters_list[:values], 0)
-      no_branch_map = Enum.at(parameters_list[:values], 11)
+      #letter_grade
+
+      test "letter_grade_A+/1", param do
+        branch = Enum.at(param[:values], 0)
+        assert Enum.at(elem(branch, 0), 0) == Calculator.letter_grade(elem(branch,1))
+      end
+
+      test "letter_grade_A/1", param do
+        branch = Enum.at(param[:values], 1)
+        assert Enum.at(elem(branch, 0), 0) == Calculator.letter_grade(elem(branch,1))
+      end
+
+      test "letter_grade_A-/1", param do
+        branch = Enum.at(param[:values], 2)
+        assert Enum.at(elem(branch, 0), 0) == Calculator.letter_grade(elem(branch,1))
+      end
+
+      test "letter_grade_B+/1", param do
+        branch = Enum.at(param[:values], 3)
+        assert Enum.at(elem(branch, 0), 0) == Calculator.letter_grade(elem(branch,1))
+      end
+
+      test "letter_grade_B/1", param do
+        branch = Enum.at(param[:values], 4)
+        assert Enum.at(elem(branch, 0), 0) == Calculator.letter_grade(elem(branch,1))
+      end
+
+      test "letter_grade_C+/1", param do
+        branch = Enum.at(param[:values], 5)
+        assert Enum.at(elem(branch, 0), 0) == Calculator.letter_grade(elem(branch,1))
+      end
+
+      test "letter_grade_C/1", param do
+        branch = Enum.at(param[:values], 6)
+        assert Enum.at(elem(branch, 0), 0) == Calculator.letter_grade(elem(branch,1))
+      end
+
+      test "letter_grade_D+/1", param do
+        branch = Enum.at(param[:values], 7)
+        assert Enum.at(elem(branch, 0), 0) == Calculator.letter_grade(elem(branch,1))
+      end
+
+      test "letter_grade_D/1", param do
+        branch = Enum.at(param[:values], 8)
+        assert Enum.at(elem(branch, 0), 0) == Calculator.letter_grade(elem(branch,1))
+      end
+
+      test "letter_grade_E/1", param do
+        branch = Enum.at(param[:values], 9)
+        assert Enum.at(elem(branch, 0), 0) == Calculator.letter_grade(elem(branch,1))
+      end
+
+      test "letter_grade_F/1", param do
+        branch = Enum.at(param[:values], 10)
+        assert Enum.at(elem(branch, 0), 0) == Calculator.letter_grade(elem(branch,1))
+      end
+
+      test "letter_grade_EIN/1", param do
+        branch = Enum.at(param[:values], 11)
+        assert Enum.at(elem(branch, 0), 0) == Calculator.letter_grade(elem(branch,1))
+      end
 
 
-      assert Enum.at(elem(yes_branch_map, 0), 2) == Calculator.percentage_grade(elem(yes_branch_map, 1)) 
-      assert Enum.at(elem(no_branch_map, 0), 2) == Calculator.percentage_grade(elem(no_branch_map, 1))
+      # numeric_grade
 
-    end
+      test "numeric_grade_10/1", param do
+        branch = Enum.at(param[:values], 0)
+        assert Enum.at(elem(branch, 0), 1) == Calculator.numeric_grade(elem(branch,1))
+      end
+
+      test "numeric_grade_9/1", param do
+        branch = Enum.at(param[:values], 1)
+        assert Enum.at(elem(branch, 0), 1) == Calculator.numeric_grade(elem(branch,1))
+      end
+
+      test "numeric_grade_8/1", param do
+        branch = Enum.at(param[:values], 2)
+        assert Enum.at(elem(branch, 0), 1) == Calculator.numeric_grade(elem(branch,1))
+      end
+
+      test "numeric_grade_7/1", param do
+        branch = Enum.at(param[:values], 3)
+        assert Enum.at(elem(branch, 0), 1) == Calculator.numeric_grade(elem(branch,1))
+      end
+
+      test "numeric_grade_6/1", param do
+        branch = Enum.at(param[:values], 4)
+        assert Enum.at(elem(branch, 0), 1) == Calculator.numeric_grade(elem(branch,1))
+      end
+
+      test "numeric_grade_5/1", param do
+        branch = Enum.at(param[:values], 5)
+        assert Enum.at(elem(branch, 0), 1) == Calculator.numeric_grade(elem(branch,1))
+      end
+
+      test "numeric_grade_4/1", param do
+        branch = Enum.at(param[:values], 6)
+        assert Enum.at(elem(branch, 0), 1) == Calculator.numeric_grade(elem(branch,1))
+      end
+
+      test "numeric_grade_3/1", param do
+        branch = Enum.at(param[:values], 7)
+        assert Enum.at(elem(branch, 0), 1) == Calculator.numeric_grade(elem(branch,1))
+      end
+
+      test "numeric_grade_2/1", param do
+        branch = Enum.at(param[:values], 8)
+        assert Enum.at(elem(branch, 0), 1) == Calculator.numeric_grade(elem(branch,1))
+      end
+
+      test "numeric_grade_1/1", param do
+        branch = Enum.at(param[:values], 9)
+        assert Enum.at(elem(branch, 0), 1) == Calculator.numeric_grade(elem(branch,1))
+      end
+
+      test "numeric_grade_0/1", param do
+        branch = Enum.at(param[:values], 10)
+        assert Enum.at(elem(branch, 0), 1) == Calculator.numeric_grade(elem(branch,1))
+      end
+
+      test "numeric_grade_0_EIN/1", param do
+        branch = Enum.at(param[:values], 11)
+        assert Enum.at(elem(branch, 0), 1) == Calculator.numeric_grade(elem(branch,1))
+      end
   end
 end
