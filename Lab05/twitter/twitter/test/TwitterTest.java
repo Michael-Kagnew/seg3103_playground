@@ -71,12 +71,24 @@ class TwitterTest {
         assertEquals(false, actual);
     }
 
-    // @Test
-    // void isMentionned_dontReturnSubstringMatches() {
-    // // Assuming a tweet like "hello @meat"
-    // // isMentionned("me") should be false
-    // // isMentionned("meat") should be true
-    // }
+    @Test
+    void isMentionned_dontReturnSubstringMatches() {
+        // Assuming a tweet like "hello @meat"
+        Twitter twitter = createMock("twitter", Twitter.class);
+        expect(twitter.isMentionned("me")).andReturn(false);
+        expect(twitter.isMentionned("meat")).andReturn(true);
+        replay(twitter);
+
+        Boolean actual;
+
+        // isMentionned("me") should be false
+        actual = twitter.isMentionned("me");
+        assertEquals(false, actual);
+
+        // isMentionned("meat") should be true
+        actual = twitter.isMentionned("meat");
+        assertEquals(true, actual);
+    }
 
     // @Test
     // void isMentionned_superStringNotFound() {
