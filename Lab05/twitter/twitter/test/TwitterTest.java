@@ -109,10 +109,22 @@ class TwitterTest {
         assertEquals(false, actual);
     }
 
-    // @Test
-    // void isMentionned_handleNull() {
-    // // Assuming no tweet is available (i.e. null)
-    // // isMentionned("me") should be false
-    // // isMentionned("meat") should be false
-    // }
+    @Test
+    void isMentionned_handleNull() {
+        // Assuming no tweet is available (i.e. null)
+        Twitter twitter = createMock("twitter", Twitter.class);
+        expect(twitter.isMentionned("me")).andReturn(false);
+        expect(twitter.isMentionned("meat")).andReturn(false);
+        replay(twitter);
+
+        Boolean actual;
+
+        // isMentionned("me") should be true
+        actual = twitter.isMentionned("me");
+        assertEquals(false, actual);
+
+        // isMentionned("meat") should be false
+        actual = twitter.isMentionned("meat");
+        assertEquals(false, actual);
+    }
 }
