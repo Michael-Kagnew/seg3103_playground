@@ -1,12 +1,12 @@
 public class Twitter {
 
-  public String loadTweet()
-  {
+  public String loadTweet() {
     try {
       Thread.sleep(4000);
-    } catch (InterruptedException e) {}
+    } catch (InterruptedException e) {
+    }
 
-    double r =  Math.random();
+    double r = Math.random();
     if (r <= 0.45) {
       return "I am tweet that likes to talk about @me";
     } else if (r <= 0.9) {
