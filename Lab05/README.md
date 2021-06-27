@@ -26,6 +26,11 @@ Here are two pictures of the results when running the mocked code.
 As seen, we are able to fake the 3 functions to work in order to be able to keep coding, even if the actual output is not accurate.
 
 ## Real Code Results
+The real code was put in, but did not work due to a bug in the application which involves the parsing of the inputs from the web app. The below image is the stack trace of the error:
+
+![images](assets/error_p1.png)
+
+The arithmitic error demonstrates how the first number that is encountered is a string, and Elixir, using the Erlang framework, attempts to add a string to 0. This of course, completely fails. To solve this, there should be parsing that converts the input to a number before the calculator module is given the value. 
 
 # Twitter
 
