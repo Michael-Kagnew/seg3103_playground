@@ -26,7 +26,7 @@ Here are two pictures of the results when running the mocked code.
 As seen, we are able to fake the 3 functions to work in order to be able to keep coding, even if the actual output is not accurate.
 
 ## Real Code Results
-The real code was put in, but did not work due to a bug in the application which involves the parsing of the inputs from the web app. The below image is the stack trace of the error:
+The real code was put in commit 2d5904afc388ef226ca93984d2156a922378bc9a, but did not work due to a bug in the application which involves the parsing of the inputs from the web app. The below image is the stack trace of the error:
 
 ![images](assets/error_p1.png)
 
