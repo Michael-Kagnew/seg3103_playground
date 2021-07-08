@@ -79,4 +79,23 @@ class ExampleSeleniumTest {
   private String[] getWords(String s) {
     return s.split("\\s+");
   }
+
+  @Test
+  public void test3() {
+    driver.get("http://localhost:8080/login"); // switch to the login page - otherwise the ID's will not exist
+
+    WebElement usernameInput = driver.findElement(By.id("loginId")); // fill-in the login text box
+    usernameInput.sendKeys("admin");
+    WebElement passwordInput = driver.findElement(By.id("loginPasswd")); // fill-in the password text box
+    passwordInput.sendKeys("password");
+    WebElement loginSelector = driver.findElement(By.id("loginBtn")); // submit the login request
+    loginSelector.click();
+    WebElement welcome = driver.findElement(By.cssSelector("p"));
+    String expected = "Welcome";
+    String actual = welcome.getText();
+    assertEquals(expected, getWords(actual)[0]); // on successful login, the user will be re-directed to the home page
+                                                 // else they will stay on the same page where the <p> tag is "invalid"
+  }
 }
+
+
