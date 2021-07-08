@@ -17,3 +17,5 @@ Below is the app running when executing the BookStoreApp-0.1.0.jar file in the t
 
 # Tests Running
 The below screenshot is the output of the 3 tests that exist, plus one extra one we created.
+
+![image](assets/test_run.png)
