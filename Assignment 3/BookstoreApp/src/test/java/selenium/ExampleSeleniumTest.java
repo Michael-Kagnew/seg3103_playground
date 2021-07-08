@@ -23,7 +23,8 @@ class ExampleSeleniumTest {
 
   @BeforeAll
   public static void setUpBeforeClass() throws Exception {
-    ProcessBuilder pb = new ProcessBuilder("java", "-jar", "bookstore5.jar");
+    ProcessBuilder pb = new ProcessBuilder("java", "-jar", "bookstore5.jar").inheritIO()
+    ;
     server = pb.start();
   }
 
