@@ -11,7 +11,7 @@ public class App
     public static void main( String[] args )
     {
         try {
-        	ProcessBuilder pb = new ProcessBuilder("java", "-jar", "bookstore5.jar");
+        	ProcessBuilder pb = new ProcessBuilder("java", "-jar", "bookstore5.jar").inheritIO() ;
         	Process p = pb.start();
             
             System.out.println(p.isAlive());
