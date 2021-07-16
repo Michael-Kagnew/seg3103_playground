@@ -139,8 +139,8 @@ class ExampleSeleniumTest {
 
   @Test
   public void tc3_posi_customer_browse() throws InterruptedException {
-    driver.get("http://localhost:8080/catalog");
-    String expected1 = "We currently have the following items in category /'Sports/'";
+    driver.get("http://localhost:8080/");
+    String expected1 = "We currently have the following items in category 'Sports'";
 
     String actual1 = customer_browser_helper(driver, "Sports");
     assertEquals(expected1, actual1);
@@ -152,17 +152,20 @@ class ExampleSeleniumTest {
 
   }
 
-  // @Test
-  // public void tc4_negi_customer_browse() {
-  // String expected = "";
-  // }
+  @Test
+  public void tc4_negi_customer_browse() {
+    driver.get("http://localhost:8080/");
+
+    String expected = "Sorry we do not have any item matching category 'abc12a' at this moment";
+
+    String actual = customer_browser_helper(driver, "abc12a");
+    assertEquals(expected, actual);
+  }
 
   private String customer_browser_helper(WebDriver driver, String keys) {
 
-    // JavascriptExecutor js = (JavascriptExecutor) driver;
-
-    // js.executeScript("document.getElementById('search').val = 'Sports'");
     WebElement categoryInput = driver.findElement(By.id("search"));
+    categoryInput.clear();
     categoryInput.sendKeys(keys);
     WebElement searchBtn = driver.findElement(By.id("searchBtn"));
     searchBtn.click();
