@@ -181,7 +181,7 @@ This is a private function that is never called within this called at any point,
 
 ## Issue 14/15/16/17/18/19
 
-##Description
+### Description
 Generally, when the use of the `final` is in a class for a variable, there should be consideration in making it `static` as well, especially since that is the convention since there would not be much need for an instance object for a non-changing field.
 
 ---
