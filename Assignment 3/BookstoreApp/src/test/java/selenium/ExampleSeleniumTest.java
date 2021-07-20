@@ -364,6 +364,7 @@ class ExampleSeleniumTest {
       copiesInput.sendKeys("1"); //Reset from any other test case, so only dealing with one copy of book now before sending update
       updateBtn.click();
 
+      copiesInput.clear();
       copiesInput.sendKeys("a");
       updateBtn.click();
       String totalCostActual = driver.findElement(By.id("tothall002")).getText();
@@ -403,7 +404,8 @@ class ExampleSeleniumTest {
       assertEquals(totalShippingExpected, totalShippingActual);
     }
 
-    @Test 
+    @Test //This is purposely failing as explained in the report, since this functional requirement has no way to stop a 
+    //customer from entering checkout,  and Professor Andrew said to look for a bug, and this the bug that we uncovered
     public void f6_negi_present_on_checkout(){
       boolean expected = false;
 
@@ -424,11 +426,11 @@ class ExampleSeleniumTest {
       WebElement deleteBtn = driver.findElement(By.id("del-lewis001"));
       deleteBtn.click();
 
-      //driver.navigate().refresh();
+      driver.navigate().refresh();
       driver.get("http://localhost:8080/admin/catalog");
 
       boolean actual = driver.findElements(By.id("del-lewis001")).isEmpty();
-      assertEquals(false, actual);
+      assertEquals(true, actual);
     }
 
   @Test
@@ -606,6 +608,7 @@ class ExampleSeleniumTest {
     bookDeleteButton.click();
 
     driver.navigate().refresh(); // just in case the page breaks
+    driver.get("http://localhost:8080/admin/catalog");
 
     boolean actual = driver.findElements(By.id("del-10203")).isEmpty(); // the book title should be gone from the table
     assertEquals(true, actual);
